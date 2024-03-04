@@ -1,0 +1,878 @@
+Program.Sub.ScreenSU.Start
+gui.F_ContactList..create
+gui.F_ContactList..caption("Email Purchase Order")
+gui.F_ContactList..size(7425,7305)
+gui.F_ContactList..position(0,0)
+gui.F_ContactList..event(unload,f_contactlist_unload)
+gui.F_ContactList..alwaysontop(False)
+gui.F_ContactList..fontname("Arial")
+gui.F_ContactList..fontsize(8)
+gui.F_ContactList..forecolor(0)
+gui.F_ContactList..fontstyle(,,,,)
+gui.F_ContactList..BackColor(-2147483633)
+gui.F_ContactList..controlbox(True)
+gui.F_ContactList..maxbutton(True)
+gui.F_ContactList..minbutton(True)
+gui.F_ContactList..mousepointer(0)
+gui.F_ContactList..moveable(True)
+gui.F_ContactList..sizeable(True)
+gui.F_ContactList..ShowInTaskBar(True)
+gui.F_ContactList..titlebar(True)
+gui.F_ContactList.lstEmails.create(listbox)
+gui.F_ContactList.lstEmails.visible(True)
+gui.F_ContactList.lstEmails.size(3045,1050)
+gui.F_ContactList.lstEmails.zorder(0)
+gui.F_ContactList.lstEmails.position(4000,500)
+gui.F_ContactList.lstEmails.enabled(True)
+gui.F_ContactList.lstEmails.fontname("Arial")
+gui.F_ContactList.lstEmails.fontsize(8)
+gui.F_ContactList.txtEmail.create(textbox,"",True,3690,300,0,100,1200,True,0,Arial,8,-2147483643,1)
+gui.F_ContactList.cmdAdd.create(button)
+gui.F_ContactList.cmdAdd.caption("Add")
+gui.F_ContactList.cmdAdd.visible(True)
+gui.F_ContactList.cmdAdd.size(840,375)
+gui.F_ContactList.cmdAdd.zorder(0)
+gui.F_ContactList.cmdAdd.position(100,1600)
+gui.F_ContactList.cmdAdd.enabled(True)
+gui.F_ContactList.cmdAdd.fontname("Arial")
+gui.F_ContactList.cmdAdd.fontsize(8)
+gui.F_ContactList.cmdAdd.event(click,cmdadd_click)
+gui.F_ContactList.cmdRemove.create(button)
+gui.F_ContactList.cmdRemove.caption("Remove")
+gui.F_ContactList.cmdRemove.visible(True)
+gui.F_ContactList.cmdRemove.size(810,375)
+gui.F_ContactList.cmdRemove.zorder(0)
+gui.F_ContactList.cmdRemove.position(1100,1600)
+gui.F_ContactList.cmdRemove.enabled(True)
+gui.F_ContactList.cmdRemove.fontname("Arial")
+gui.F_ContactList.cmdRemove.fontsize(8)
+gui.F_ContactList.cmdRemove.event(click,cmdremove_click)
+gui.F_ContactList.lbl1.create(label,"Choose an existing contact",True,2565,255,1,100,300,True,0,Arial,8,-2147483633,0)
+gui.F_ContactList.lbl2.create(label,"Enter an email address",True,2850,255,1,100,1000,True,0,Arial,8,-2147483633,0)
+gui.F_ContactList.cmdSend.create(button)
+gui.F_ContactList.cmdSend.caption("Send")
+gui.F_ContactList.cmdSend.visible(True)
+gui.F_ContactList.cmdSend.size(855,360)
+gui.F_ContactList.cmdSend.zorder(0)
+gui.F_ContactList.cmdSend.position(100,6350)
+gui.F_ContactList.cmdSend.enabled(True)
+gui.F_ContactList.cmdSend.fontname("Arial")
+gui.F_ContactList.cmdSend.fontsize(8)
+gui.F_ContactList.cmdSend.event(click,cmdsend_click)
+gui.F_ContactList.mltxtBody.create(textboxm)
+gui.F_ContactList.mltxtBody.text("")
+gui.F_ContactList.mltxtBody.visible(True)
+gui.F_ContactList.mltxtBody.size(6915,2595)
+gui.F_ContactList.mltxtBody.zorder(0)
+gui.F_ContactList.mltxtBody.position(100,3630)
+gui.F_ContactList.mltxtBody.enabled(True)
+gui.F_ContactList.mltxtBody.alignment(0)
+gui.F_ContactList.mltxtBody.fontname("Arial")
+gui.F_ContactList.mltxtBody.fontsize(8)
+gui.F_ContactList.mltxtBody.BackColor(-2147483643)
+gui.F_ContactList.txtSubject.create(textbox,"",True,6930,300,0,85,3000,True,0,Arial,8,-2147483643,1)
+gui.F_ContactList.txtSubject.maxLength(72)
+gui.F_ContactList.lbl3.create(label,"Subject",True,1935,255,1,100,2775,True,0,Arial,8,-2147483633,0)
+gui.F_ContactList.lbl4.create(label,"Body",True,1935,255,1,100,3405,True,0,Arial,8,-2147483633,0)
+gui.F_ContactList.lbl5.create(label,"Recipients",True,1935,255,1,4000,300,True,0,Arial,8,-2147483633,0)
+gui.F_ContactList.lbl6.create(label,"Reply To Email Address",True,1935,255,1,100,2125,True,0,Arial,8,-2147483633,0)
+gui.F_ContactList.txtReplyEmail.create(textbox,"",True,3690,300,0,100,2360,True,0,Arial,8,-2147483643,1)
+gui.F_ContactList.ddlContact.create(dropdownlist)
+gui.F_ContactList.ddlContact.visible(True)
+gui.F_ContactList.ddlContact.size(3690,330)
+gui.F_ContactList.ddlContact.zorder(0)
+gui.F_ContactList.ddlContact.position(100,545)
+gui.F_ContactList.ddlContact.enabled(True)
+gui.F_ContactList.ddlContact.fontname("Arial")
+gui.F_ContactList.ddlContact.fontsize(8)
+gui.F_ContactList.ddlContact.event(click,ddlcontact_click)
+gui.F_ContactList.txtEmail.tabstop(True)
+gui.F_ContactList.txtEmail.tabindex(2)
+gui.F_ContactList.cmdAdd.tabstop(True)
+gui.F_ContactList.cmdAdd.tabindex(3)
+gui.F_ContactList.lstEmails.tabstop(True)
+gui.F_ContactList.lstEmails.tabindex(4)
+gui.F_ContactList.cmdRemove.tabstop(True)
+gui.F_ContactList.cmdRemove.tabindex(5)
+gui.F_ContactList.txtSubject.tabstop(True)
+gui.F_ContactList.txtSubject.tabindex(6)
+gui.F_ContactList.mltxtBody.tabstop(True)
+gui.F_ContactList.mltxtBody.tabindex(7)
+gui.F_ContactList.cmdSend.tabstop(True)
+gui.F_ContactList.cmdSend.tabindex(8)
+
+
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+Variable.Global.sCompID.Declare(String)
+Variable.Global.sCompName.Declare(String)
+Variable.Global.sTranNum.Declare(String)
+Variable.Global.sFullTranNum.Declare(String)
+Variable.Global.bBal.Declare(Boolean,False)
+Variable.Global.sAcctNum.Declare(String)
+Variable.Global.sImmDestTran.Declare(String)
+Variable.Global.sImmDest.Declare(String)
+Variable.Global.sImmOri.Declare(String)
+Variable.Global.sImmOriTran.Declare(String)
+Variable.UDT.uPayments.Define("Vendor_ID",String)
+Variable.UDT.uPayments.Define("Vendor_Name",String)
+Variable.UDT.uPayments.Define("Batch_Num",String)
+Variable.UDT.uPayments.Define("Check_Date",Date)
+Variable.UDT.uPayments.Define("Check_Amt",Float)
+Variable.UDT.uPayments.Define("Invoice",String)
+Variable.uGlobal.uPayments.Declare("uPayments")
+Variable.UDT.uVendor.Define("Vendor_ID",String)
+Variable.UDT.uVendor.Define("Invoices",String)
+Variable.UDT.uVendor.Define("Vendor_Name",String)
+Variable.UDT.uVendor.Define("Pay_Amount",Float)
+Variable.uGlobal.uVendor.Declare("uVendor")
+Variable.Global.sVendorID.Declare(String)
+Variable.Global.bBusy.Declare(Boolean,False)
+Variable.Global.sList.Declare(String)
+Variable.Global.sImmOriTranTrim.Declare(String)
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+F.ODBC.Connection!con.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+V.uGlobal.uPayments.Redim(-1,-1)
+V.uGlobal.uVendor.Redim(-1,-1)
+F.Intrinsic.Control.CallSub(Opchk)
+
+Program.Sub.Main.End
+
+Program.Sub.Unload.Start
+F.ODBC.Connection!con.Close
+F.Intrinsic.Control.End
+
+Program.Sub.Unload.End
+
+Program.Sub.OpChk.Start
+F.Intrinsic.Control.SetErrorHandler("OpChk_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+V.Local.sSql.Declare(String)
+
+'First checking for ACH records to actually export
+V.Local.sSql.Set("Select * from V_ACH_PAYMENT where EXPORTED = ''")
+F.ODBC.Connection!con.OpenLocalRecordsetRO("rst",V.Local.sSql)
+F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,True)
+	F.ODBC.con!rst.Close
+	F.Intrinsic.UI.Msgbox("No ACH records found!","No Records")
+	F.Intrinsic.Control.CallSub(Unload)
+F.Intrinsic.Control.Else
+	F.ODBC.con!rst.Close
+
+	'Checking to see if the Balanced in the Company Options whas selected or not
+	F.ODBC.Connection!Con.OpenLocalRecordsetRO("rst","Select * from OP_HEADER where ID = '400026' and SEQUENCE = '0007'")
+	F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,True)
+		F.ODBC.con!rst.Close
+		F.Intrinsic.UI.Msgbox("Balancing option not selected.  Please update ACH Options.","Option Error")
+		F.Intrinsic.Control.CallSub(Unload)
+	F.Intrinsic.Control.Else
+		F.Intrinsic.Control.If(V.ODBC.Con!rst.FieldValLong!F_BOOLEAN,=,1)
+			V.Global.bBal.Set(False)
+		F.Intrinsic.Control.Else
+			V.Global.bBal.Set(True)
+		F.Intrinsic.Control.EndIf
+		F.ODBC.con!rst.Close
+	F.Intrinsic.Control.EndIf
+
+	'Getting ACH Company ID from Company Options
+	F.ODBC.Connection!Con.OpenLocalRecordsetRO("rst","Select * from OP_HEADER where ID = '400026' and SEQUENCE = '0006'")
+	F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,True)
+		F.ODBC.con!rst.Close
+		F.Intrinsic.UI.Msgbox("ACH Company ID not entered.  Please update ACH Options.","Option Error")
+		F.Intrinsic.Control.CallSub(Unload)
+	F.Intrinsic.Control.Else
+		V.Global.sCompID.Set(V.ODBC.con!rst.FieldValTrim!TEXT1)
+		F.ODBC.Con!rst.Close
+	F.Intrinsic.Control.EndIf
+
+	'Getting Company Name from Company Options
+	F.ODBC.Connection!Con.OpenLocalRecordsetRO("rst","Select * from OP_HEADER where ID = '400026' and SEQUENCE = '0004'")
+	F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,True)
+		F.ODBC.con!rst.Close
+		F.Intrinsic.UI.Msgbox("Company Name not entered.  Please update ACH Options.","Option Error")
+		F.Intrinsic.Control.CallSub(Unload)
+	F.Intrinsic.Control.Else
+		V.Global.sCompName.Set(V.ODBC.con!rst.FieldValTrim!TEXT1)
+		F.ODBC.Con!rst.Close
+	F.Intrinsic.Control.EndIf
+
+	'Getting bank transit number
+	F.ODBC.Connection!Con.OpenLocalRecordsetRO("rst","Select * from OP_HEADER where ID = '400026' and SEQUENCE = '0002'")
+	F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,True)
+		F.ODBC.con!rst.Close
+		F.Intrinsic.UI.Msgbox("Bank Transit Number not entered.  Please update ACH Options.","Option Error")
+		F.Intrinsic.Control.CallSub(Unload)
+	F.Intrinsic.Control.Else
+		V.Global.sTranNum.Set(V.ODBC.con!rst.FieldValTrim!TEXT1)
+		F.Intrinsic.String.Left(V.Global.sTranNum,8,V.Global.sTranNum)
+		V.Global.sFullTranNum.Set(V.ODBC.con!rst.FieldValTrim!TEXT1)
+		F.ODBC.Con!rst.Close
+	F.Intrinsic.Control.EndIf
+
+	'Getting bank account number
+	F.ODBC.Connection!Con.OpenLocalRecordsetRO("rst","Select * from OP_HEADER where ID = '400026' and SEQUENCE = '0008'")
+	F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,True)
+		F.ODBC.con!rst.Close
+		F.Intrinsic.UI.Msgbox("Bank Account Number not entered.  Please update ACH Options.","Option Error")
+		F.Intrinsic.Control.CallSub(Unload)
+	F.Intrinsic.Control.Else
+		V.Global.sAcctNum.Set(V.ODBC.con!rst.FieldValTrim!TEXT1)
+		F.ODBC.Con!rst.Close
+	F.Intrinsic.Control.EndIf
+
+	'Getting immediate destination name and number
+	F.ODBC.Connection!Con.OpenLocalRecordsetRO("rst","Select * from OP_HEADER where ID = '400803' and SEQUENCE = '0001'")
+	F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,True)
+		F.ODBC.con!rst.Close
+		F.Intrinsic.UI.Msgbox("Immediate Destination Name not entered.  Please update ACH Options.","Option Error")
+		F.Intrinsic.Control.CallSub(Unload)
+	F.Intrinsic.Control.Else
+		V.Global.sImmDest.Set(V.ODBC.con!rst.FieldValTrim!TEXT1)
+		F.ODBC.con!rst.Close
+	F.Intrinsic.Control.EndIf
+	F.ODBC.Connection!Con.OpenLocalRecordsetRO("rst","Select * from OP_HEADER where ID = '400803' and SEQUENCE = '0002'")
+	F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,True)
+		F.ODBC.con!rst.Close
+		F.Intrinsic.UI.Msgbox("Immediate Destination Transit Number not entered.  Please update ACH Options.","Option Error")
+		F.Intrinsic.Control.CallSub(Unload)
+	F.Intrinsic.Control.Else
+		V.Global.sImmDestTran.Set(V.ODBC.con!rst.FieldValTrim!TEXT1)
+		F.ODBC.con!rst.Close
+	F.Intrinsic.Control.EndIf
+
+	'Getting immediate origin name and number
+	F.ODBC.Connection!Con.OpenLocalRecordsetRO("rst","Select * from OP_HEADER where ID = '400803' and SEQUENCE = '0003'")
+	F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,True)
+		F.ODBC.con!rst.Close
+		F.Intrinsic.UI.Msgbox("Immediate Origin Name not entered.  Please update ACH Options.","Option Error")
+		F.Intrinsic.Control.CallSub(Unload)
+	F.Intrinsic.Control.Else
+		V.Global.sImmOri.Set(V.ODBC.con!rst.FieldValTrim!TEXT1)
+		F.ODBC.con!rst.Close
+	F.Intrinsic.Control.EndIf
+	F.ODBC.Connection!Con.OpenLocalRecordsetRO("rst","Select * from OP_HEADER where ID = '400803' and SEQUENCE = '0004'")
+	F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,True)
+		F.ODBC.con!rst.Close
+		F.Intrinsic.UI.Msgbox("Immediate Origin Transit Number not entered.  Please update ACH Options.","Option Error")
+		F.Intrinsic.Control.CallSub(Unload)
+	F.Intrinsic.Control.Else
+		V.Global.sImmOriTran.Set(V.ODBC.con!rst.FieldValTrim!TEXT1)
+		V.Global.sImmOriTranTrim.Set(V.ODBC.con!rst.FieldValTrim!TEXT1)
+		F.Intrinsic.String.Left(V.Global.sImmOriTranTrim,8,V.Global.sImmOriTranTrim)
+		F.ODBC.con!rst.Close
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.CallSub(Buildfile)
+F.Intrinsic.Control.EndIf
+
+
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("OpChk_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: ATG_3101_NACHA_ANZ.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.OpChk.End
+
+Program.Sub.BuildFile.Start
+F.Intrinsic.Control.SetErrorHandler("BuildFile_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+V.Local.iCount.Declare(Long)
+V.Local.sFileWrite.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.iUB.Declare(Long)
+
+V.Local.iCount.Set(0)
+
+'Selecting distinct batch records from the ACH table where the records have not been exported yet
+F.ODBC.Connection!con.OpenLocalRecordsetRW("rst","Select * from V_ACH_PAYMENT where EXPORTED <> 'Y'")
+F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,False)
+	'Loop through the records for bulding the detail section of the file
+	F.Intrinsic.Control.DoUntil(V.ODBC.con!rst.EOF,=,True)
+		'Updating the exported flag on record to signal that it has been exported
+		F.ODBC.con!rst.Set!EXPORTED("Y")
+		F.ODBC.con!rst.Update
+		
+		'If not on first line, insert new line
+		F.Intrinsic.Control.If(V.Local.iCount,=,1)
+			F.Intrinsic.String.Concat(V.Local.sFileWrite,V.Ambient.NewLine,V.Local.sFileWrite)
+		F.Intrinsic.Control.Else
+			V.Local.iCount.Set(1)
+		F.Intrinsic.Control.EndIf
+
+		'Creating string to write to file
+		F.Intrinsic.String.Concat(V.Local.sFileWrite,V.ODBC.con!rst.FieldValTrim!CHECK_AMT,",",V.Local.sFileWrite)
+		F.Intrinsic.String.Concat(V.Local.sFileWrite,V.ODBC.con!rst.FieldValTrim!BANK_ACCOUNT,",",V.Local.sFileWrite)
+		F.Intrinsic.String.Concat(V.Local.sFileWrite,V.ODBC.con!rst.FieldValTrim!VENDOR_NAME,",",V.Local.sFileWrite)
+		F.Intrinsic.String.Concat(V.Local.sFileWrite,V.ODBC.con!rst.FieldValTrim!BATCH_NUM,",",V.Local.sFileWrite)
+		F.Intrinsic.String.Concat(V.Local.sFileWrite,"ACH Payment,",V.Local.sFileWrite)
+		F.Intrinsic.String.Concat(V.Local.sFileWrite,V.ODBC.con!rst.FieldValTrim!VENDOR_ID,",",V.Local.sFileWrite)
+		F.Intrinsic.String.Concat(V.Local.sFileWrite,V.Global.sCompName,",",V.Local.sFileWrite)
+		F.Intrinsic.String.Concat(V.Local.sFileWrite,"ACH Payment,",V.Local.sFileWrite)
+		F.Intrinsic.String.Concat(V.Local.sFileWrite,V.ODBC.con!rst.FieldValTrim!CHECK_DATE,V.Local.sFileWrite)
+		
+		'Writing records to UDTs for generating email information
+		F.Intrinsic.Control.If(V.ODBC.con!rst.FieldValTrim!EMAIL_FLAG,=,"Y")
+			F.Intrinsic.Control.If(V.uGlobal.uVendor.UBound,=,-1)
+				V.uGlobal.uVendor.Redim(0,0)
+				V.uGlobal.uVendor!Vendor_ID.Set(V.ODBC.con!rst.FieldValTrim!VENDOR_ID)
+				V.uGlobal.uVendor!Vendor_Name.Set(V.ODBC.con!rst.FieldValTrim!VENDOR_NAME)
+				V.uGlobal.uVendor!Invoices.Set(V.ODBC.con!rst.FieldValTrim!INVOICE_NO)
+				V.uGlobal.uVendor!Pay_Amount.Set(V.ODBC.con!rst.FieldValFloat!CHECK_AMT)
+			F.Intrinsic.Control.Else
+				F.Intrinsic.Variable.UDTSeek(V.uGlobal.uVendor!Vendor_ID,V.ODBC.con!rst.FieldValTrim!VENDOR_ID,0,V.Local.sRet)
+				F.Intrinsic.Control.If(V.Local.sRet,=,"")
+					V.Local.iUB.Set(V.uGlobal.uVendor.UBound)
+					F.Intrinsic.Math.Add(V.Local.iUB,1,V.Local.iUB)
+					V.uGlobal.uVendor.RedimPreserve(V.uGlobal.uVendor.LBound,V.Local.iUB)
+					V.uGlobal.uVendor(V.Local.iUB)!Vendor_ID.Set(V.ODBC.con!rst.FieldValTrim!VENDOR_ID)
+					V.uGlobal.uVendor(V.Local.iUB)!Vendor_Name.Set(V.ODBC.con!rst.FieldValTrim!VENDOR_NAME)
+					V.uGlobal.uVendor(V.Local.iUB)!Invoices.Set(V.ODBC.con!rst.FieldValTrim!INVOICE_NO)
+					V.uGlobal.uVendor(V.Local.iUB)!Pay_Amount.Set(V.ODBC.con!rst.FieldValFloat!CHECK_AMT)
+				F.Intrinsic.Control.Else
+					F.Intrinsic.String.Concat(V.uGlobal.uVendor(V.Local.sRet.Long)!Invoices,",",V.ODBC.con!rst.FieldValTrim!INVOICE_NO,V.uGlobal.uVendor(V.Local.sRet.Long)!Invoices)
+					F.Intrinsic.Math.Add(V.uGlobal.uVendor(V.Local.sRet.Long)!Pay_Amount,V.ODBC.con!rst.FieldValFloat!CHECK_AMT,V.uGlobal.uVendor(V.Local.sRet.Long)!Pay_Amount)
+				F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.EndIf
+		F.ODBC.con!rst.MoveNext
+		
+	F.Intrinsic.Control.Loop
+	
+	F.Intrinsic.Control.CallSub(Filesave,"sFileWrite",V.Local.sFileWrite)
+F.Intrinsic.Control.EndIf
+
+
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("BuildFile_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: ATG_3101_NACHA_ANZ.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.BuildFile.End
+
+Program.Sub.ChkDigit.Start
+F.Intrinsic.Control.SetErrorHandler("ChkDigit_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+
+
+V.Local.sTranNum.Declare(String)
+V.Local.iChkDigit.Declare(Long)
+V.Local.i.Declare(Long)
+V.Local.fRnd.Declare(Float)
+
+'Calculating the check digit using a mod 10
+F.Intrinsic.String.LimitSplit(V.Args.sTranNum,1,V.Local.sTranNum)
+F.Intrinsic.Math.Mult(V.Local.sTranNum(0).Long,3,V.Local.iChkDigit)
+F.Intrinsic.Math.Mult(V.Local.sTranNum(1).Long,7,V.Local.i)
+F.Intrinsic.Math.Add(V.Local.iChkDigit,V.Local.i,V.Local.iChkDigit)
+F.Intrinsic.Math.Mult(V.Local.sTranNum(2).Long,1,V.Local.i)
+F.Intrinsic.Math.Add(V.Local.iChkDigit,V.Local.i,V.Local.iChkDigit)
+F.Intrinsic.Math.Mult(V.Local.sTranNum(3).Long,3,V.Local.i)
+F.Intrinsic.Math.Add(V.Local.iChkDigit,V.Local.i,V.Local.iChkDigit)
+F.Intrinsic.Math.Mult(V.Local.sTranNum(4).Long,7,V.Local.i)
+F.Intrinsic.Math.Add(V.Local.iChkDigit,V.Local.i,V.Local.iChkDigit)
+F.Intrinsic.Math.Mult(V.Local.sTranNum(5).Long,1,V.Local.i)
+F.Intrinsic.Math.Add(V.Local.iChkDigit,V.Local.i,V.Local.iChkDigit)
+F.Intrinsic.Math.Mult(V.Local.sTranNum(6).Long,3,V.Local.i)
+F.Intrinsic.Math.Add(V.Local.iChkDigit,V.Local.i,V.Local.iChkDigit)
+F.Intrinsic.Math.Mult(V.Local.sTranNum(7).Long,7,V.Local.i)
+F.Intrinsic.Math.Add(V.Local.iChkDigit,V.Local.i,V.Local.iChkDigit)
+F.Intrinsic.Math.Mod(V.Local.iChkDigit,10,V.Local.fRnd)
+F.Intrinsic.Control.If(V.Local.fRnd,=,0)
+	F.Intrinsic.Math.Sub(V.Local.iChkDigit,V.Local.iChkDigit,V.Local.iChkDigit)
+F.Intrinsic.Control.Else
+	F.Intrinsic.Math.Add(V.Local.iChkDigit,10,V.Local.i)
+	F.Intrinsic.Math.IDiv(V.Local.i,10,V.Local.i)
+	F.Intrinsic.Math.Mult(V.Local.i,10,V.Local.i)
+	F.Intrinsic.Math.Sub(V.Local.i,V.Local.iChkDigit,V.Local.iChkDigit)
+F.Intrinsic.Control.EndIf
+F.Intrinsic.Variable.AddRV("iChkDigit",V.Local.iChkDigit)
+
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("ChkDigit_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: ATG_3101_NACHA_ANZ.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.ChkDigit.End
+
+Program.Sub.FileSave.Start
+F.Intrinsic.Control.SetErrorHandler("FileSave_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+V.Local.sFile.Declare(String)
+
+F.Intrinsic.UI.ShowSaveFileDialog("","txt|*.txt",V.Local.sFile)
+F.Intrinsic.Control.If(V.Local.sFile,<>,"***CANCEL***")
+	F.Intrinsic.File.String2File(V.Local.sFile,V.Args.sFileWrite)
+F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.CallSub(Emailnotifications)
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("FileSave_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: ATG_3101_NACHA_ANZ.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.FileSave.End
+
+program.sub.f_contactlist_unload.start
+F.Intrinsic.Control.SetErrorHandler("f_contactlist_unload_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+
+Gui.F_ContactList..Visible(False)
+V.Global.bBusy.Set(False)
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("f_contactlist_unload_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: ATG_3101_NACHA_ANZ.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.f_contactlist_unload.end
+
+program.sub.cmdadd_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdadd_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+V.Local.sEmail.Declare(String)
+V.Local.i.Declare(Long)
+V.Local.bChk.Declare(Boolean)
+
+V.Local.bChk.Set(False)
+'Exit if no email selected or enetered
+F.Intrinsic.Control.If(V.Screen.F_ContactList!txtEmail.Text,=,"")
+	F.Intrinsic.UI.Msgbox("Please enter a recipient email address..","Invalid Email")
+	Gui.F_ContactList.txtEmail.SetFocus
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+'Checking for valid email
+V.Local.sEmail.Set(V.Screen.F_ContactList!txtEmail.Text)
+F.Intrinsic.String.Split(V.Local.sEmail.Trim,"@",V.Local.sEmail)
+F.Intrinsic.Control.If(V.Local.sEmail.UBound,<>,1)
+	F.Intrinsic.UI.Msgbox("Invalid email address.","Invalid Email")
+	Gui.F_ContactList.txtEmail.SetFocus
+	Gui.F_ContactList.txtEmail.SelectAll
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Else
+	F.Intrinsic.String.Split(V.Local.sEmail(1),".",V.Local.sEmail)
+	F.Intrinsic.Control.If(V.Local.sEmail.UBound,<>,1)
+		F.Intrinsic.UI.Msgbox("Invalid email address.","Invalid Email")
+		Gui.F_ContactList.txtEmail.SetFocus
+		Gui.F_ContactList.txtEmail.SelectAll
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+'Search for email address in memory array  to avoid duplicates
+F.Intrinsic.Control.For(V.Local.i,0,V.Global.sList.UBound,1)
+	F.Intrinsic.Control.If(V.Screen.F_ContactList!txtEmail.Text,=,V.Global.sList(v.Local.i))
+		V.Local.bChk.Set(True)
+		F.Intrinsic.Control.ExitFor(V.Local.i)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Next(V.Local.i)
+
+'If email not found in list, add it to memory array
+F.Intrinsic.Control.If(V.Local.bChk,=,False)
+	F.Intrinsic.Control.If(V.Global.sList.UBound,=,-1)
+		V.Global.sList.Redim(0,0)
+	F.Intrinsic.Control.Else
+		V.Global.sList.RedimPreserve(1)
+	F.Intrinsic.Control.EndIf
+	V.Global.sList(v.Global.sList.UBound).Set(V.Screen.F_ContactList!txtEmail.Text)
+F.Intrinsic.Control.EndIf
+
+'Fill list from memory array
+Gui.F_ContactList.txtEmail.Text("")
+F.Intrinsic.Control.CallSub("FillList")
+
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdadd_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: ATG_3101_NACHA_ANZ.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmdadd_click.end
+
+program.sub.cmdremove_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdremove_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+V.Local.i.Declare(Long)
+V.Local.iStart.Declare(Long)
+V.Local.iEnd.Declare(Long)
+V.Local.iTemp.Declare(Long)
+V.Local.bFound.Declare(Boolean)
+
+'Exit if no email selected in list
+F.Intrinsic.Control.If(V.Screen.F_ContactList!lstEmails.Text,=,"")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+'Search memory array for ordinal of selected email
+F.Intrinsic.Control.For(V.Local.iStart,0,V.Global.sList.UBound,1)
+	F.Intrinsic.Control.If(V.Screen.F_ContactList!lstEmails.Text,=,V.Global.sList(v.Local.iStart))
+		V.Local.bFound.Set(True)
+		F.Intrinsic.Control.ExitFor(V.Local.iStart)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Next(V.Local.iStart)
+
+'Shift memory array to remove selected email
+F.Intrinsic.Math.Sub(V.Global.sList.UBound,1,V.Local.iEnd)
+F.Intrinsic.Control.For(V.Local.i,V.Local.iStart,V.Local.iEnd,1)
+	F.Intrinsic.Math.Add(V.Local.i,1,V.Local.iTemp)
+	V.Global.sList(v.Local.i).set(V.Global.sList(v.Local.iTemp))
+F.Intrinsic.Control.Next(V.Local.i)
+F.Intrinsic.Control.If(V.Global.sList.UBound,=,0)
+	V.Global.sList.Redim(-1,-1)
+F.Intrinsic.Control.else
+	V.Global.sList.RedimPreserve(0,V.Local.iEnd)
+F.Intrinsic.Control.EndIf
+
+'Fill list from memory array
+F.Intrinsic.Control.CallSub("FillList")
+
+'Clear email selection
+Gui.F_ContactList.ddlContact.ListIndex(0)
+Gui.F_ContactList.txtEmail.Text("")
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdremove_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: ATG_3101_NACHA_ANZ.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmdremove_click.end
+
+program.sub.cmdsend_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdsend_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+V.Local.sEmail.Declare(String)
+V.Local.i.Declare(Long)
+
+'Exit if no email selected or enetered
+F.Intrinsic.Control.If(V.Screen.F_ContactList!txtReplyEmail.Text,=,"")
+	F.Intrinsic.UI.Msgbox("No reply to address entered.","Invalid Email")
+	Gui.F_ContactList.txtReplyEmail.SetFocus
+	Gui.F_ContactList.txtReplyEmail.SelectAll
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+'Checking for valid email
+V.Local.sEmail.Set(V.Screen.F_ContactList!txtReplyEmail.Text)
+F.Intrinsic.String.Split(V.Local.sEmail.Trim,"@",V.Local.sEmail)
+F.Intrinsic.Control.If(V.Local.sEmail.UBound,<>,1)
+	F.Intrinsic.UI.Msgbox("Invalid reply to email address.","Invalid Email")
+	Gui.F_ContactList.txtReplyEmail.SetFocus
+	Gui.F_ContactList.txtReplyEmail.SelectAll
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Else
+	F.Intrinsic.String.Split(V.Local.sEmail(1),".",V.Local.sEmail)
+	F.Intrinsic.Control.If(V.Local.sEmail.UBound,<>,1)
+		F.Intrinsic.UI.Msgbox("Invalid reply to email address.","Invalid Email")
+		Gui.F_ContactList.txtReplyEmail.SetFocus
+		Gui.F_ContactList.txtReplyEmail.SelectAll
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+'Checking to make sure recipient list isn't blank
+F.Intrinsic.Control.If(V.Global.sList.UBound,=,-1)
+	F.Intrinsic.UI.Msgbox("Please enter at least one recipient email.","Invalid Email")
+	Gui.F_ContactList.txtEmail.SetFocus
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+Gui.F_ContactList..Visible(False)
+
+F.Intrinsic.Control.For(V.Local.i,0,V.Global.sList.UBound,1)
+	F.Global.Messaging.CreateEMMessage(V.Global.sList(V.Local.i),"",V.Screen.F_ContactList!txtReplyEmail.Text,"",V.Screen.F_ContactList!txtSubject.Text,V.Screen.F_ContactList!mltxtBody.Text)
+	F.Intrinsic.UI.Sleep(1)
+F.Intrinsic.Control.Next(V.Local.i)
+V.Global.bBusy.Set(False)
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdsend_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: ATG_3101_NACHA_ANZ.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmdsend_click.end
+
+Program.Sub.PopContacts.Start
+F.Intrinsic.Control.SetErrorHandler("PopContacts_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+V.Local.sSQL.Declare(String)
+V.Local.sTemp.Declare(String)
+
+''Add blank item to drop down list
+'Gui.F_ContactList.ddlContact.AddItem("")
+
+'Fill drop down list with contacts/emails for the customer on the order
+F.Intrinsic.String.Concat("Select Name, Alt_ID, Email1, Email2, Name_Last, Name_First from Contact where Cust='",V.Global.sVendorID,"' and Type = 'V' order by Name_Last, Name_First",V.Local.sSQL)
+F.ODBC.Connection!con.OpenRecordsetRO("rst",V.Local.sSQL)
+F.Intrinsic.Control.DoUntil(V.ODBC.con!rst.EOF,=,True)
+	F.Intrinsic.Control.If(V.ODBC.con!rst.FieldValTrim!Email1,<>,"")
+		F.Intrinsic.string.Concat(V.ODBC.con!rst.FieldValTrim!Name," <",V.ODBC.con!rst.FieldValTrim!Email1,">",V.Local.sTemp)
+		Gui.F_ContactList.ddlContact.AddItem(V.Local.sTemp)
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.If(V.ODBC.con!rst.FieldValTrim!Email2,<>,"")
+		F.Intrinsic.string.Concat(V.ODBC.con!rst.FieldValTrim!Name," <",V.ODBC.con!rst.FieldValTrim!Email2,">",V.Local.sTemp)
+		Gui.F_ContactList.ddlContact.AddItem(V.Local.sTemp)
+	F.Intrinsic.Control.EndIf
+	F.ODBC.con!rst.MoveNext
+F.Intrinsic.Control.Loop
+F.ODBC.con!rst.Close
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("PopContacts_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: ATG_3101_NACHA_ANZ.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.PopContacts.End
+
+Program.Sub.EmailNotifications.Start
+F.Intrinsic.Control.SetErrorHandler("EmailNotifications_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+V.Local.i.Declare(Long)
+V.Local.ia.Declare(Long)
+V.Local.sText.Declare(String)
+V.Local.sReplyEmail.Declare(String)
+V.Local.sSql.Declare(String)
+V.Local.sEmail.Declare(String)
+V.Local.bChk.Declare(Boolean)
+
+F.Intrinsic.Control.If(V.uGlobal.uVendor.UBound,=,-1)
+	F.Intrinsic.Control.CallSub(Unload)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.For(V.Local.i,V.uGlobal.uVendor.LBound,V.uGlobal.uVendor.UBound,1)
+	V.Local.bChk.Set(False)
+	V.Global.sVendorID.Set(V.uGlobal.uVendor(V.Local.i)!Vendor_ID)
+	Gui.F_ContactList.ddlContact.ClearItems
+	Gui.F_ContactList.lstEmails.ClearItems
+	Gui.F_ContactList.txtEmail.Text("")
+	Gui.F_ContactList.txtSubject.Text("")
+	Gui.F_ContactList.mltxtBody.Text("")
+	F.Intrinsic.Control.CallSub(Popcontacts)
+	Gui.F_ContactList.txtSubject.Text("ACH Payment Notification")
+	F.Intrinsic.String.Concat("Company: ",V.uGlobal.uVendor(V.Local.i)!Vendor_Name,V.Ambient.NewLine,"Invoices: ",V.uGlobal.uVendor(V.Local.i)!Invoices,V.Ambient.NewLine,"Payment Amount: ",V.uGlobal.uVendor(V.Local.i)!Pay_Amount,V.Local.sText)
+	Gui.F_ContactList.mltxtBody.Text(V.Local.sText)
+	F.Global.Security.GetUserEmail(V.Caller.User,V.Caller.CompanyCode,V.Local.sReplyEmail)
+	Gui.F_ContactList.txtReplyEmail.Text(V.Local.sReplyEmail)
+	F.Intrinsic.String.Concat("ACH Email Notificiation For ",V.uGlobal.uVendor(V.Local.i)!Vendor_Name,V.Local.sText)
+	Gui.F_ContactList..Caption(V.Local.sText)
+	V.Global.sList.Redim(-1,-1)
+	Gui.F_ContactList..Show
+
+	F.Intrinsic.String.Concat("Select EMAIL from V_VENDOR_ADDL where VENDOR = '",V.uGlobal.uVendor(V.Local.i)!Vendor_ID.Trim,"'",V.Local.sSql)
+	F.ODBC.Connection!con.OpenLocalRecordsetRO("rst",V.Local.sSql)
+	F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,<>,True)
+		V.Local.sEmail.Set(V.ODBC.con!rst.FieldValTrim!EMAIL)
+	F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.Control.If(V.Local.sEmail,<>,"")
+		Gui.F_ContactList.lstEmails.AddItem(V.ODBC.con!rst.FieldValTrim!EMAIL)
+		'Search for email address in memory array  to avoid duplicates
+		F.Intrinsic.Control.For(V.Local.ia,0,V.Global.sList.UBound,1)
+			F.Intrinsic.Control.If(V.Local.sEmail,=,V.Global.sList(v.Local.ia))
+				V.Local.bChk.Set(True)
+				F.Intrinsic.Control.ExitFor(V.Local.ia)
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Next(V.Local.ia)
+
+		'If email not found in list, add it to memory array
+		F.Intrinsic.Control.If(V.Local.bChk,=,False)
+			F.Intrinsic.Control.If(V.Global.sList.UBound,=,-1)
+				V.Global.sList.Redim(0,0)
+			F.Intrinsic.Control.Else
+				V.Global.sList.RedimPreserve(1)
+			F.Intrinsic.Control.EndIf
+			V.Global.sList(v.Global.sList.UBound).Set(V.Local.sEmail)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+
+	F.ODBC.con!rst.Close
+	V.Global.bBusy.Set(True)
+	F.Intrinsic.Control.CallSub(Wait)
+F.Intrinsic.Control.Next(V.Local.i)
+F.Intrinsic.Control.CallSub(Unload)
+
+
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("EmailNotifications_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: ATG_3101_NACHA_ANZ.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.EmailNotifications.End
+
+Program.Sub.FillList.Start
+F.Intrinsic.Control.SetErrorHandler("FillList_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+V.Local.i.Declare(Long)
+
+Gui.F_ContactList.lstEmails.ClearItems
+
+'Fill listbox from memory array
+F.Intrinsic.Control.For(V.Local.i,0,V.Global.sList.UBound,1)
+	Gui.F_ContactList.lstEmails.AddItem(V.Global.sList(v.Local.i))
+F.Intrinsic.Control.Next(V.Local.i)
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("FillList_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: ATG_3101_NACHA_ANZ.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.FillList.End
+
+program.sub.ddlcontact_click.start
+F.Intrinsic.Control.SetErrorHandler("ddlcontact_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+V.Local.iPos.Declare(Long)
+V.Local.sEmail.Declare(String)
+
+F.Intrinsic.Control.If(V.Screen.F_ContactList!ddlContact.Text,<>,"")
+	'Select contact from drop down list - populate textbox
+	F.Intrinsic.String.Instr(V.Screen.F_ContactList!ddlContact.Text,"<",V.Local.ipos)
+	F.Intrinsic.String.mid(V.Screen.F_ContactList!ddlContact.Text,V.Local.iPos,V.Local.sEmail)
+	F.Intrinsic.String.Replace(V.Local.sEmail,"<","",V.Local.sEmail)
+	F.Intrinsic.String.Replace(V.Local.sEmail,">","",V.Local.sEmail)
+	Gui.F_ContactList.txtEmail.Text(V.Local.sEmail)
+F.Intrinsic.Control.Else
+	Gui.F_ContactList.txtEmail.Text("")
+F.Intrinsic.Control.endif
+
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("ddlcontact_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: ATG_3101_NACHA_ANZ.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.ddlcontact_click.end
+
+Program.Sub.Wait.Start
+F.Intrinsic.Control.SetErrorHandler("Wait_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+
+F.Intrinsic.Control.DoUntil(V.Global.bBusy,=,False)
+	F.Intrinsic.UI.Sleep(1)
+	F.Intrinsic.Control.DoEvents
+F.Intrinsic.Control.Loop
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Wait_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: ATG_3101_NACHA_ANZ.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.Wait.End
+
+Program.Sub.Comments.Start
+${$0$}$NACHA$}$MLA$}$1/26/2012
+${$3$}$0$}$$}$-1$}$-1$}$$}$1/1/1900$}$Original customer was SMS Millcraft.
+
+This is a re-write of the original script due to many inconsistencies with the original.
+Program.Sub.Comments.End
+
